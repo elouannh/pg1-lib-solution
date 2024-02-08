@@ -1,0 +1,11 @@
+###
+POST http://localhost:5001/api/book
+Content-Type: application/json
+
+{
+  "message": "Hello world!"
+}
+
+###
+GET http://localhost:5001/api/book/1
+Content-Type: application/json
