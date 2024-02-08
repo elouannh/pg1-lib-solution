@@ -1,5 +1,5 @@
 [project]
-name = 'prepa-alpha'
+name = 'pg1-lib-solution'
 version = '1.0.0'
 description = 'Backend for a fictional library.'
 requires-python = '>=3.11'
