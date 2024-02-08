@@ -4,7 +4,7 @@ from flask import Blueprint, request
 from marshmallow import ValidationError
 
 from data.book.models import BookModel
-from data.book.schemas import BookModel
+from data.book.schemas import BookSchema
 from shared import db
 
 NAME = 'book'

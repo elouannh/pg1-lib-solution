@@ -1,1 +1,1 @@
-from .book_controller import borrow_book_blueprint
+from .book_controller import book_blueprint
