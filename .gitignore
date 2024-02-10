@@ -152,7 +152,4 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# JetBrains
-.idea/
-
 .DS_Store
