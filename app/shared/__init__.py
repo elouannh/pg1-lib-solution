@@ -7,6 +7,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow import ValidationError
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 db: SQLAlchemy = SQLAlchemy()
 migrate = Migrate()
@@ -28,7 +29,9 @@ def create_app(config):
 
     url_prefix = "/api"
 
+    from data.auth.controllers import auth_blueprint
     from data.book.controllers import book_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix=url_prefix)
     app.register_blueprint(book_blueprint, url_prefix=url_prefix)
 
     @app.errorhandler(ValidationError)
