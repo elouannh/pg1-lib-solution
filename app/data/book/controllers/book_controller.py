@@ -28,7 +28,7 @@ def post_book():
     try:
         entity: BookModel = BookModel().load(payload)
     except ValidationError as error:
-        return f"The payload does't correspond to a valid HelloWorldModel: {error}", 400
+        return f"The payload does't correspond to a valid BookModel: {error}", 400
     db.session.add(entity)
     db.session.commit()
     return BookModel().dump(entity), 200
