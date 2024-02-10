@@ -29,7 +29,9 @@ def create_app(config):
 
     url_prefix = "/api"
 
+    from data.auth.controllers import auth_blueprint
     from data.book.controllers import book_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix=url_prefix)
     app.register_blueprint(book_blueprint, url_prefix=url_prefix)
 
     @app.errorhandler(ValidationError)
