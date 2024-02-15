@@ -18,6 +18,8 @@ dependencies = [
     'load_dotenv',
     'pytest',
     'Flask-JWT-Extended',
+    'flask-bcrypt',
+    'wheel'
 ]
 
 [pyproject.optional-dependencies]

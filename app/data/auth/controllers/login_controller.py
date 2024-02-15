@@ -1,4 +1,4 @@
-""" Routes for the endpoint 'book'"""
+""" Routes for the endpoint 'login'"""
 
 from flask import Blueprint, request
 from marshmallow import ValidationError
@@ -7,13 +7,13 @@ from data.auth.models import AuthModel
 from data.auth.schemas import AuthSchema
 from shared import db
 
-NAME = 'auth'
+NAME = 'login'
 
-auth_blueprint = Blueprint(f"{NAME}_auth_blueprint", __name__)
+login_blueprint = Blueprint(f"{NAME}_auth_blueprint", __name__)
 
 
-@auth_blueprint.get(f"/{NAME}/<int:id>")
-def get_auth(id: str):
+@login_blueprint.get(f"/{NAME}/<int:id>")
+def get_login(id: str):
     """GET route code goes here"""
     entity: AuthModel = db.session.query(AuthModel).get(id)
     if entity is None:
@@ -21,8 +21,8 @@ def get_auth(id: str):
     return entity.message, 200
 
 
-@auth_blueprint.post(f"/{NAME}/")
-def post_auth():
+@login_blueprint.post(f"/{NAME}/")
+def post_login():
     """POST route code goes here"""
     payload = request.get_json()
     try:
@@ -34,19 +34,19 @@ def post_auth():
     return AuthModel().dump(entity), 200
 
 
-@auth_blueprint.delete(f"/{NAME}/<int:id>")
-def delete_auth(id: str):
+@login_blueprint.delete(f"/{NAME}/<int:id>")
+def delete_login(id: str):
     """DELETE route code goes here"""
     return "Unimplemented", 501
 
 
-@auth_blueprint.put(f"/{NAME}/<int:id>")
-def put_auth(id: str):
+@login_blueprint.put(f"/{NAME}/<int:id>")
+def put_login(id: str):
     """PUT route code goes here"""
     return "Unimplemented", 501
 
 
-@auth_blueprint.patch(f"/{NAME}/<int:id>")
-def patch_auth(id: str):
+@login_blueprint.patch(f"/{NAME}/<int:id>")
+def patch_login(id: str):
     """PATCH route code goes here"""
     return "Unimplemented", 501

@@ -1,5 +1,6 @@
 from typing import Final
 import os
+import binascii
 
 
 class BaseConfig:
@@ -8,6 +9,10 @@ class BaseConfig:
     def __init__(self):
         # Flask
         self.MIGRATION: Final[str] = os.getenv("MIGRATION")
+
+        # Tokenization
+        secret_key = binascii.hexlify(os.urandom(32)).decode('utf-8')
+        self.JWT_SECRET_KEY = secret_key
 
         # Database
         self.USER: Final[str] = os.getenv("DB_USER")
